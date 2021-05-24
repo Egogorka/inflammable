@@ -3,11 +3,11 @@ project(inflammable)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(inflammable main.cpp)
+add_executable(inflammable main.cpp src/App.h src/App.cpp)
 
 # sfml include magic
 
-include_directories(headers /usr/include c:/SFML/include)
+include_directories(src /usr/include c:/SFML/include)
 
 set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake-modules")
 find_package(SFML REQUIRED system window graphics)
