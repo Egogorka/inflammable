@@ -3,7 +3,10 @@ project(inflammable)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(inflammable main.cpp src/App.h src/App.cpp)
+add_executable(inflammable
+        main.cpp
+        src/App.cpp
+        src/GameObjects/Player/Player.cpp)
 
 # sfml include magic
 

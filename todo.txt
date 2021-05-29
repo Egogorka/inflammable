@@ -1,0 +1,7 @@
+What do I want to make in this project?
+Maybe some kind of simple platformer with simple sprite animation + scrolling
+
+TODO:
+    Event-bus system?
+    Movable player?
+    First - stupid just-make prototype
