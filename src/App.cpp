@@ -3,6 +3,7 @@
 //
 
 #include "App.h"
+#include "GameObjects/Wall/Wall.h"
 
 App::App() {
     resolution = RESOLUTION;
@@ -11,15 +12,23 @@ App::App() {
 }
 
 void App::before_loop() {
-    player = Player(Vector2f(50,50));
-    game_objects.push_back(&player);
+    player = new Player(Vector2f(50,50));
+    auto* wall = new Wall(Vector2f(75,50), Vector2f(50,50));
+    game_objects.push_back(wall);
+    game_objects.push_back(player);
+}
+
+App::~App() {
+    for( auto object : game_objects ){
+        delete object;
+    }
 }
 
 void App::on_loop() {
     auto elapsed = clock.restart();
     window.clear(sf::Color::Black);
 
-    player.move(elapsed);
+    player->move(elapsed);
 
     for( auto object : game_objects ){
         window.draw(*object);

@@ -9,8 +9,6 @@
 #include <iostream>
 #include <list>
 #include "GameObjects/Player/Player.h"
-#include "GameObjects/GameObject.h"
-#include "GameObjects/PhysObject.h"
 
 using sf::Vector2f;
 
@@ -22,6 +20,7 @@ using sf::Vector2f;
 class App {
 public:
     App();
+    ~App();
     void run();
 
 protected:
@@ -29,7 +28,7 @@ protected:
     sf::RenderWindow window;
     sf::Clock clock;
 
-    Player player;
+    Player* player;
     std::list<GameObject*> game_objects;
 
     void before_loop();
