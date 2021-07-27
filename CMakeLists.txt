@@ -6,7 +6,13 @@ set(CMAKE_CXX_STANDARD 17)
 add_executable(inflammable
         main.cpp
         src/App.cpp
-        src/GameObjects/Player/Player.cpp)
+        src/GameObjects/Player/Player.cpp
+        src/GameObjects/Level/Level.h
+        src/GameObjects/GameObject.h
+        src/GameObjects/PhysObject.cpp
+        src/GameObjects/Wall/Wall.cpp
+        src/GameObjects/Wall/Wall.h
+        src/GameObjects/GameObject.cpp)
 
 # sfml include magic
 

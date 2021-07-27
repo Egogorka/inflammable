@@ -3,14 +3,23 @@
 //
 
 #include "Player.h"
+using sf::Keyboard;
 
-Player::Player() {pos = Vector2f(0,0);}
-Player::Player(Vector2f _pos): pos(_pos) {};
+Player::Player(Vector2f pos) {
+    position = pos;
+    size = Vector2f(30,30);
+    friction = 0.5;
+}
+Player::Player(): Player(Vector2f(0,0)) {}
 
-void Player::draw(sf::RenderTarget &target, sf::RenderStates states) const {
-    sf::RectangleShape rect(Vector2f(30,30));
-    Vector2f real_pos = pos - Vector2f(15,15);
-    rect.setPosition(real_pos);
-
-    target.draw(rect);
+void Player::move(sf::Time elapsed) {
+    PhysObject::move(elapsed);
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+        velocity += Vector2f(-5,0);
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+        velocity += Vector2f(5,0);
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+        velocity += Vector2f(0,-5);
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+        velocity += Vector2f(0,5);
 }

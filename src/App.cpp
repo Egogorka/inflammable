@@ -11,11 +11,20 @@ App::App() {
 }
 
 void App::before_loop() {
-
+    player = Player(Vector2f(50,50));
+    game_objects.push_back(&player);
 }
 
 void App::on_loop() {
+    auto elapsed = clock.restart();
     window.clear(sf::Color::Black);
+
+    player.move(elapsed);
+
+    for( auto object : game_objects ){
+        window.draw(*object);
+    }
+
     window.display();
 }
 
@@ -23,12 +32,11 @@ void App::on_event(sf::Event &event) {
     if (event.type == sf::Event::Closed) {
         window.close();
     }
-//    if (event.type == sf::Event::MouseButtonPressed){
-//        if(event.mouseButton.button == sf::Mouse::Left){
-//            std::cout << "click!\n";
-//            table.click(Vector2f(event.mouseButton.x,event.mouseButton.y));
-//        }
-//    }
+    if (event.type == sf::Event::MouseButtonPressed){
+        if(event.mouseButton.button == sf::Mouse::Left){
+            std::cout << "click!\n";
+        }
+    }
 }
 
 void App::run() {
