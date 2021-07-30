@@ -14,6 +14,7 @@ public:
     explicit Player(Vector2f _pos);
 
     void move(sf::Time elapsed) override;
+    void collide(PhysObject& obj);
 };
 
 

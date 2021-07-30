@@ -9,7 +9,7 @@ void GameObject::draw(RenderTarget &target, RenderStates states) const {
 
     sf::RectangleShape rect(size);
     rect.setFillColor(color);
-    Vector2f real_pos = position - size/2.f;
+    Vector2f real_pos = position;
     rect.setPosition(real_pos);
 
     target.draw(rect);

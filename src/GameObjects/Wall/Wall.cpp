@@ -6,7 +6,8 @@
 
 Wall::Wall(Vector2f pos, Vector2f size_) {
     position = pos;
-    size = size_;
+    collision_size = size = size_;
 }
 
 void Wall::move(sf::Time elapsed) {}
+

@@ -10,7 +10,7 @@ using sf::Vector2i, sf::Vector2f;
 using sf::RenderTarget, sf::RenderStates;
 
 class GameObject: public sf::Drawable {
-protected:
+public:
     Vector2f position;
     Vector2f size = Vector2f(0,0);
 

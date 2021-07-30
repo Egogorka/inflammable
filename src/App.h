@@ -29,7 +29,7 @@ protected:
     sf::Clock clock;
 
     Player* player;
-    std::list<GameObject*> game_objects;
+    std::list<PhysObject*> phys_object;
 
     void before_loop();
     void on_loop();

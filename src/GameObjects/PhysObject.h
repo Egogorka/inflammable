@@ -8,7 +8,7 @@
 #include "GameObject.h"
 
 class PhysObject: public GameObject {
-protected:
+public:
     Vector2f velocity = Vector2f(0,0);
     Vector2f acceleration = Vector2f(0,0);
     // if 0 - no friction, better be positive for defined behaviour

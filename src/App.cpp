@@ -13,13 +13,13 @@ App::App() {
 
 void App::before_loop() {
     player = new Player(Vector2f(50,50));
-    auto* wall = new Wall(Vector2f(75,50), Vector2f(50,50));
-    game_objects.push_back(wall);
-    game_objects.push_back(player);
+    phys_object.push_back(new Wall(Vector2f(150,150), Vector2f(200,5)));
+    phys_object.push_back(new Wall(Vector2f(300,150), Vector2f(60,60)));
+    phys_object.push_back(player);
 }
 
 App::~App() {
-    for( auto object : game_objects ){
+    for( auto object : phys_object ){
         delete object;
     }
 }
@@ -30,10 +30,12 @@ void App::on_loop() {
 
     player->move(elapsed);
 
-    for( auto object : game_objects ){
+    for( auto object : phys_object ){
         window.draw(*object);
-    }
 
+        if( player == object ) continue;
+        player->collide(*object);
+    }
     window.display();
 }
 
