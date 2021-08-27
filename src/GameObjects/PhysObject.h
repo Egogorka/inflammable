@@ -9,6 +9,9 @@
 
 class PhysObject: public GameObject {
 public:
+    enum Axis {X_axis=0,Y_axis=1};
+
+    Vector2f prev_position = Vector2f(0,0);
     Vector2f velocity = Vector2f(0,0);
     Vector2f acceleration = Vector2f(0,0);
     // if 0 - no friction, better be positive for defined behaviour
@@ -19,7 +22,8 @@ public:
     // corresponds to the collision-box
     Vector2f collision_size = size;
 
-    virtual bool check_collision(PhysObject &other);
+    virtual bool check_collision(const PhysObject &other);
+    virtual bool check_collision(const PhysObject &other, Axis axis);
 };
 
 #endif //INFLAMMABLE_PHYSOBJECT_H
